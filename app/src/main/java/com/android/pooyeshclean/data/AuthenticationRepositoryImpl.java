@@ -3,6 +3,8 @@ package com.android.pooyeshclean.data;
 import com.android.pooyeshclean.domain.repository.AuthenticationRepository;
 import com.android.pooyeshclean.remote.AuthenticationRemote;
 import com.android.pooyeshclean.remote.entity.LoginResponse;
+import com.android.pooyeshclean.remote.entity.ResendResponse;
+import com.android.pooyeshclean.remote.entity.VerifyResponse;
 
 import javax.inject.Inject;
 
@@ -22,5 +24,15 @@ public class AuthenticationRepositoryImpl implements AuthenticationRepository {
     @Override
     public Single<LoginResponse> sendPhoneNumber(String phoneNumber) {
         return authenticationRemote.sendPhoneNumber(phoneNumber);
+    }
+
+    @Override
+    public Single<VerifyResponse> verify(String phoneNumber) {
+        return authenticationRemote.verify(phoneNumber);
+    }
+
+    @Override
+    public Single<ResendResponse> resend() {
+        return authenticationRemote.resend();
     }
 }

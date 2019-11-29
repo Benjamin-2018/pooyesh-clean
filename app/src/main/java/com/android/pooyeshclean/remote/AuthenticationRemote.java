@@ -1,6 +1,8 @@
 package com.android.pooyeshclean.remote;
 
 import com.android.pooyeshclean.remote.entity.LoginResponse;
+import com.android.pooyeshclean.remote.entity.ResendResponse;
+import com.android.pooyeshclean.remote.entity.VerifyResponse;
 
 import javax.inject.Inject;
 
@@ -19,5 +21,12 @@ public class AuthenticationRemote {
 
     public Single<LoginResponse> sendPhoneNumber(String phoneNumber) {
         return authenticationService.sendPhoneNumber("http://www.mocky.io/v2/5dc3ccc53000003c003475d1");
+    }
+    public Single<VerifyResponse> verify(String pin) {
+        return authenticationService.verify("http://www.mocky.io/v2/5dc3ccc53000003c003475d1");
+    }
+
+    public Single<ResendResponse> resend() {
+        return authenticationService.resend("http://www.mocky.io/v2/5dc3ccc53000003c003475d1");
     }
 }
